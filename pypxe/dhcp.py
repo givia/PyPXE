@@ -286,12 +286,12 @@ class DHCPD:
         if self.whitelist and self.get_mac(client_mac) not in self.get_namespaced_static('dhcp.binding'):
             self.logger.debug('Non-whitelisted client request received')
             return False
-        if 60 in self.leases[client_mac]['options'] and 'PXEClient' in self.leases[client_mac]['options'][60][0]:
-            self.logger.debug('PXE client request received')
-            return True
-        if self.mode_debug:
-            self.logger.debug('Non-PXE client request received')
-        return False
+        #if 60 in self.leases[client_mac]['options'] and 'PXEClient' in self.leases[client_mac]['options'][60][0]:
+        #    self.logger.debug('PXE client request received')
+        #    return True
+        #if self.mode_debug:
+        #    self.logger.debug('Non-PXE client request received')
+        return True
 
     def listen(self):
         '''Main listen loop.'''
